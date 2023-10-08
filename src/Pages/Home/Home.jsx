@@ -1,6 +1,8 @@
-import Collection from "../../Component/Collection/Collection";
-import Company from "../../Component/Company/Company";
+import Collection from "../../Component/Home/Collection";
+import Company from "../../Component/Home/Company";
+import EngravingService from "../../Component/Home/EngravingService";
 import Hero from "../../Component/Home/Hero";
+import JewelryServices from "../../Component/Home/JewelryServices";
 
 const Home = () => {
   return (
@@ -8,6 +10,8 @@ const Home = () => {
       <Hero></Hero>
       <Company></Company>
       <Collection></Collection>
+      <JewelryServices></JewelryServices>
+      <EngravingService></EngravingService>
     </div>
   );
 };
