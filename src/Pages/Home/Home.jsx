@@ -1,3 +1,4 @@
+import Collection from "../../Component/Collection/Collection";
 import Company from "../../Component/Company/Company";
 import Hero from "../../Component/Home/Hero";
 
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       <Hero></Hero>
       <Company></Company>
+      <Collection></Collection>
     </div>
   );
 };

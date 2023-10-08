@@ -11,6 +11,10 @@
     font-size: 70px;
 }
 
+.section-title{
+    font-family: 'Playfair Display', serif;
+}
+
 .hero-overlay {
     background-image: url("../public/header.webp");
     background-attachment: fixed;
