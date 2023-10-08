@@ -3,6 +3,7 @@ import Company from "../../Component/Home/Company";
 import EngravingService from "../../Component/Home/EngravingService";
 import Hero from "../../Component/Home/Hero";
 import JewelryServices from "../../Component/Home/JewelryServices";
+import OurBestSellProduct from "../../Component/Home/OurBestSellProduct";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Collection></Collection>
       <JewelryServices></JewelryServices>
       <EngravingService></EngravingService>
+      <OurBestSellProduct></OurBestSellProduct>
     </div>
   );
 };

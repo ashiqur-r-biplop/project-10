@@ -50,7 +50,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-[#000]">
+    <div className="bg-[#C47B7B]">
       <div className="container mx-auto">
         <div className="navbar justify-between py-[20px]">
           <Link className="">
