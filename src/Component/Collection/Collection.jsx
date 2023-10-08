@@ -1,7 +1,9 @@
+import ProductCard from "../ProductCard/ProductCard";
+
 /* eslint-disable react/no-unescaped-entities */
 const Collection = () => {
   return (
-    <div className="mt-[100px]">
+    <div className="my-[100px]">
       <h1 className="section-title text-5xl text-center">
         The Lawson Collection
       </h1>
@@ -10,6 +12,7 @@ const Collection = () => {
         watchmakers, watch repair professionals and smartphone technicians who
         provide superior quality services.
       </p>
+      <ProductCard></ProductCard>
     </div>
   );
 };
