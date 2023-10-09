@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Silver Overlay Diamond Accent Necklace",
-        "image": "../public/card-img-1.webp",
+        "image": "card-img-1.webp",
         "price": 260,
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiati.",
         "Quantity": 20,
@@ -11,7 +11,7 @@
     {
         "id": 1,
         "name": "Silver Overlay Diamond Accent Necklace",
-        "image": "../public/card-img-1.webp",
+        "image": "card-img-2.webp",
         "price": 260,
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiati.",
         "Quantity": 20,
@@ -20,7 +20,7 @@
     {
         "id": 1,
         "name": "Silver Overlay Diamond Accent Necklace",
-        "image": "../public/card-img-1.webp",
+        "image": "card-img-3.webp",
         "price": 260,
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiati.",
         "Quantity": 20,
@@ -29,7 +29,7 @@
     {
         "id": 1,
         "name": "Silver Overlay Diamond Accent Necklace",
-        "image": "../public/card-img-1.webp",
+        "image": "card-img-1.webp",
         "price": 260,
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiati.",
         "Quantity": 20,

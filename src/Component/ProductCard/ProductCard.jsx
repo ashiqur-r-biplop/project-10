@@ -6,7 +6,7 @@ const ProductCard = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("/public/Products.json")
+    fetch("Products.json")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

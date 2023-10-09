@@ -4,7 +4,7 @@ const OurBestSellProduct = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("/public/BestSell.json")
+    fetch("BestSell.json")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
