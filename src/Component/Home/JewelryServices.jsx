@@ -1,11 +1,11 @@
 import img from "../../../public/Jewelry-right.webp";
 const JewelryServices = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 px-2 md:px-0">
       <div>
         <img className="w-full" src={img} alt="" />
       </div>
-      <div className="flex flex-col justify-center items-start md:px-[100px]">
+      <div className="flex flex-col justify-center items-center md:items-start md:px-[100px]">
         <h2 className="section-title text-5xl py-3">Jewelry Repair Services</h2>
         <p className="text-[#b2b1b1] py-10 w-[90%]">
           With proper care and maintenance, your jewelry will reward you with a

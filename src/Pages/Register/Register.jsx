@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleImg from "../../assets/social/google.png";
 import gitHubImg from "../../assets/social/github.png";
@@ -15,11 +15,11 @@ const Register = () => {
   const [errorMassage, setErrorMassage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
-  const { signUp, signInGoogle, signInGithub, ProfileUpdate, setReload } =
+  const { signUp, signInGoogle, signInGithub, ProfileUpdate, setReload, setLoading } =
     useContext(AuthContext);
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-
+  const [confirmPassword, setConfirmPassword] = useState("");
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -34,6 +34,8 @@ const Register = () => {
     } else if (!/^(?=.*[A-Za-z])/.test(password)) {
       setErrorMassage("At least one letter");
       setSuccessMessage("");
+    } else if (password !== confirmPassword) {
+      setErrorMassage("password Not matched");
     } else {
       signUp(email, password)
         .then((result) => {
@@ -142,13 +144,7 @@ const Register = () => {
               name="name"
               required
             />
-            <input
-              type="text"
-              placeholder="Your Photo URL"
-              className="border"
-              name="photoUrl"
-              required
-            />
+
             <input
               type="email"
               placeholder="palatable.world@gmail.com"
@@ -160,7 +156,7 @@ const Register = () => {
               <input
                 type={`${toggleIcon ? "text" : "password"}`}
                 className="border m-0"
-                placeholder="******"
+                placeholder="Enter Password"
                 name="password"
                 onChange={handlePassword}
               />
@@ -182,6 +178,22 @@ const Register = () => {
                 )}
               </span>
             </div>
+            <div className="w-full relative my-3">
+              <input
+                type={`${toggleIcon ? "text" : "password"}`}
+                className="border m-0"
+                placeholder="Confirm Password"
+                name="confirm_password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Your Photo URL"
+              className="border"
+              name="photoUrl"
+              required
+            />
             <p className="text-red-500 mb-2 ">{errorMassage}</p>
             {successMessage && (
               <p className="text-[#32c770] mb-2 ">{successMessage}</p>

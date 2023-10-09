@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <div className="bg-[#000] py-[100px]">
       <div className="container mx-auto">
-        <footer className="grid grid-cols-1 md:grid-cols-4  p-10 ] text-neutral-content">
+        <footer className="grid grid-cols-1 md:grid-cols-4  p-[10px] gap-10 text-neutral-content">
           <nav className="flex flex-col">
             <header className="footer-title">
               <img width={80} src={logo} alt="" />

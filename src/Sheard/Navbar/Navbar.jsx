@@ -1,6 +1,16 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import logo from "/public/Logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logout()
+      .then((res) => {})
+      .catch((err) => {});
+  };
+  console.log(user);
   const navOptions = (
     <>
       <li className="">
@@ -34,7 +44,7 @@ const Navbar = () => {
         )}
       </li> */}
 
-      {/* {user ? (
+      {user ? (
         <>
           <button onClick={handleLogOut} className="btn btn-ghost">
             Log Out
@@ -43,10 +53,13 @@ const Navbar = () => {
       ) : (
         <>
           <li>
-            <Link to="/login">Login</Link>
+            <Link className="border" to="/login">
+              Login
+            </Link>
           </li>
         </>
-      )} */}
+      )}
+      {user?.photoURL ? <img className="w-10 rounded-full" src={user?.photoURL} alt="" /> : ""}
     </>
   );
   return (
@@ -83,7 +96,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 text-white">
+            <ul className="menu menu-horizontal items-center px-1 text-white">
               {navOptions}
             </ul>
           </div>
