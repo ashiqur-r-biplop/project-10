@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import img from "../../../public/shop.webp";
 import axios from "axios";
 const AllJewelry = () => {
+  
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios

@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import useTitle from "../../CustomHook/UseTitle";
 import UseRole from "../../CustomHook/UseRole";
 import axios from "axios";
 
 const AddJewelry = () => {
-  useTitle("AddJewelry");
   const { user } = useContext(AuthContext);
   const userRole = UseRole();
   console.log(userRole);
