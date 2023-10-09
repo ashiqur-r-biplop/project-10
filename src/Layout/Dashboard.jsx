@@ -9,7 +9,7 @@ const Dashboard = () => {
           <SideBar></SideBar>
         </div>
         <div className="col-span-10">
-          <div className="p-[100px]">
+          <div className="md:p-[100px]">
             <Outlet></Outlet>
           </div>
         </div>
