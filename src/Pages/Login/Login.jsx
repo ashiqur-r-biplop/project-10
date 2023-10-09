@@ -4,17 +4,15 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import googleImg from "../../assets/social/google.png";
-import gitHubImg from "../../assets/social/github.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import useTitle from "../../CustomHook/UseTitle";
 
 const Login = () => {
-  useTitle("Login")
-  const { login, signInGoogle, signInGithub } = useContext(AuthContext);
+  useTitle("Login");
+  const { login, signInGoogle } = useContext(AuthContext);
   const [toggleIcon, setToggleIcon] = useState(false);
   const [errorMassage, setErrorMassage] = useState("");
   const [successMassage, setSuccessMassage] = useState("");
@@ -40,7 +38,7 @@ const Login = () => {
           icon: "success",
           title: "Your Log In Successful",
           showConfirmButton: false,
-          buttonsStyling: "#32c770",
+          buttonsStyling: "#78632F",
           timer: 1500,
         });
         setSuccessMassage("login successful");
@@ -52,8 +50,8 @@ const Login = () => {
         Swal.fire({
           icon: "error",
           buttonsStyling: {
-            color: "#32c770",
-            backgroundColor: "#32c770",
+            color: "#78632F",
+            backgroundColor: "#78632F",
           },
           title: `${err.message}`,
           footer: '<a href="">Why do I have this issue?</a>',
@@ -63,8 +61,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    const googleProvider = new GoogleAuthProvider();
-    signInGoogle(googleProvider)
+    signInGoogle()
       .then((result) => {
         const loggedUser = result.user;
         // console.log(loggedUser);
@@ -79,25 +76,6 @@ const Login = () => {
       })
       .catch((err) => {});
   };
-  const handleGithubLogin = () => {
-    const githubProvider = new GithubAuthProvider();
-    signInGithub(githubProvider)
-      .then((result) => {
-        const loggedUser = result.user;
-        // console.log(object);
-        navigate(from, { replace: true });
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Your Github Login Successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      })
-      .catch((err) => {
-        // console.log(err.message);
-      });
-  };
 
   return (
     <div className="container mx-auto mt-20">
@@ -107,12 +85,12 @@ const Login = () => {
           className="flex flex-col justify-center items-center h-full"
         >
           <div className="flex flex-col justify-start items-start fullForm lg:w-2/6 md:w-3/6  shadow-2xl">
-            <h2 className="text-2xl mb-2" style={{ color: "#32c770" }}>
+            <h2 className="text-2xl mb-2" style={{ color: "#78632F" }}>
               Please Login
             </h2>
             <input
               type="email"
-              placeholder="palatable.world@gmail.com"
+              placeholder="Jewelry.world@gmail.com"
               className="border"
               name="email"
             />
@@ -148,7 +126,7 @@ const Login = () => {
             <p className="mb-2">
               Don't Have an Account?{" "}
               <Link
-                style={{ color: "#32c770", fontWeight: 700 }}
+                style={{ color: "#78632F", fontWeight: 700 }}
                 to="/register"
               >
                 Please Register
@@ -157,7 +135,7 @@ const Login = () => {
             <input
               type="submit"
               value="Login"
-              className="bg-[#32c770] border-0 text-white font-semibold"
+              className="bg-[#78632F] border-0 text-white font-semibold"
             />
             <div className="pt-5 flex items-center justify-between w-full">
               <p>Or Sign in with:</p>
@@ -167,23 +145,11 @@ const Login = () => {
                   style={{
                     width: "50px",
                     marginRight: "10px",
-                    border: "2px solid #32c770",
+                    border: "2px solid #78632F",
                     cursor: "pointer",
                     padding: "10px",
                   }}
                   src={googleImg}
-                  alt=""
-                />
-                <img
-                  onClick={handleGithubLogin}
-                  style={{
-                    width: "50px",
-                    marginRight: "10px",
-                    border: "2px solid #32c770",
-                    cursor: "pointer",
-                    padding: "10px",
-                  }}
-                  src={gitHubImg}
                   alt=""
                 />
               </div>

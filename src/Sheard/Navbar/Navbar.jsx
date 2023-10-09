@@ -3,14 +3,19 @@ import { Link } from "react-router-dom";
 import logo from "/public/Logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useOwner from "../../CustomHook/UseOwner";
+import UseRole from "../../CustomHook/UseRole";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  // const {isOwner, isOwnerLoading} = useOwner()
+  const userRole = UseRole();
+
   const handleLogOut = () => {
     logout()
       .then((res) => {})
       .catch((err) => {});
   };
-  console.log(user);
+
   const navOptions = (
     <>
       <li className="">
@@ -28,21 +33,9 @@ const Navbar = () => {
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
-      {/* <li>
-        <Link to={isAdmin ? "/dashboard/adminhome" : "/dashboard/userhome"}>
-          Dashboard
-        </Link>
-      </li> */}
-      {/* <li>
-        {user && (
-          <Link to="/dashboard/mycart">
-            <button className="btn gap-2">
-              <FaShoppingCart />
-              <div className="badge badge-secondary">+{cart?.length || 0}</div>
-            </button>
-          </Link>
-        )}
-      </li> */}
+      <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
 
       {user ? (
         <>
@@ -59,7 +52,11 @@ const Navbar = () => {
           </li>
         </>
       )}
-      {user?.photoURL ? <img className="w-10 rounded-full" src={user?.photoURL} alt="" /> : ""}
+      {user?.photoURL ? (
+        <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
+      ) : (
+        ""
+      )}
     </>
   );
   return (

@@ -7,7 +7,7 @@ input {
 }
 
 input:focus {
-    border: 2px solid #32c770;
+    border: 2px solid #78632F;
 }
 
 .fullForm {
@@ -16,21 +16,21 @@ input:focus {
 
 .forget-password {
     cursor: pointer;
-    color: #32c770;
+    color: #78632F;
 
 }
 
 .swal2-styled.swal2-confirm {
-    background-color: #013855 !important;
+    background-color: #78632F !important;
 }
 
 .swal2-x-mark-line-left,
 .swal2-x-mark-line-right {
-    background-color: #013855 !important;
+    background-color: #78632F !important;
 }
 
 .swal2-icon.swal2-error {
-    border-color: #013855 !important;
+    border-color: #78632F !important;
 }
 
 .toggle-icon {

@@ -6,16 +6,16 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleImg from "../../assets/social/google.png";
 import gitHubImg from "../../assets/social/github.png";
 
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import axios from "axios";
 
 const Register = () => {
   const [toggleIcon, setToggleIcon] = useState(false);
   const [errorMassage, setErrorMassage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
-  const { signUp, signInGoogle, signInGithub, ProfileUpdate, setReload, setLoading } =
+  const { signUp, signInGoogle, ProfileUpdate, setReload } =
     useContext(AuthContext);
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -44,15 +44,26 @@ const Register = () => {
           setSuccessMessage("");
           ProfileUpdate(name, photoUrl).then(() => {
             setReload(true);
-          });
-          navigate(from, { replace: true });
-          form.reset();
-          Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: "Your Register Successful",
-            showConfirmButton: false,
-            timer: 1500,
+            const saveUser = {
+              email,
+              name,
+              photo: photoUrl,
+              role: "seller",
+            };
+            // console.log(saveUser);
+            axios.post("http://localhost:5000/users", saveUser).then((data) => {
+              if (data?.data.insertedId) {
+                navigate(from, { replace: true });
+                form.reset();
+                Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: "Your Register Successful",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }
+            });
           });
         })
         .catch((err) => {
@@ -93,8 +104,7 @@ const Register = () => {
     }
   };
   const handleGoogleLogin = () => {
-    const googleProvider = new GoogleAuthProvider();
-    signInGoogle(googleProvider)
+    signInGoogle()
       .then((result) => {
         const loggedUser = result.user;
         // console.log(loggedUser);
@@ -103,22 +113,6 @@ const Register = () => {
           position: "top-center",
           icon: "success",
           title: "Your Google Register is Successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      })
-      .catch((err) => {});
-  };
-  const handleGithubLogin = () => {
-    const githubProvider = new GithubAuthProvider();
-    signInGithub(githubProvider)
-      .then((result) => {
-        const loggedUser = result.user;
-        navigate(from, { replace: true });
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Your Github Register is Successful",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -134,7 +128,7 @@ const Register = () => {
           className="flex flex-col justify-center items-center h-full"
         >
           <div className="flex flex-col justify-start items-start fullForm lg:w-3/6 md:w-3/6  shadow-2xl">
-            <h2 className="text-2xl mb-2" style={{ color: "#32c770" }}>
+            <h2 className="text-2xl mb-2" style={{ color: "#78632F" }}>
               Please Register
             </h2>
             <input
@@ -147,7 +141,7 @@ const Register = () => {
 
             <input
               type="email"
-              placeholder="palatable.world@gmail.com"
+              placeholder="Jewelry.world@gmail.com"
               className="border"
               name="email"
               onChange={handleEmail}
@@ -196,18 +190,18 @@ const Register = () => {
             />
             <p className="text-red-500 mb-2 ">{errorMassage}</p>
             {successMessage && (
-              <p className="text-[#32c770] mb-2 ">{successMessage}</p>
+              <p className="text-[#6cc855] mb-2 ">{successMessage}</p>
             )}
             <p className="mb-2">
               Already have an account?{" "}
-              <Link style={{ color: "#32c770", fontWeight: 700 }} to="/login">
+              <Link style={{ color: "#78632F", fontWeight: 700 }} to="/login">
                 Please Login
               </Link>
             </p>
             <input
               type="submit"
               value="Register"
-              className="bg-[#32c770] border-0 text-white font-semibold"
+              className="bg-[#78632F] border-0 text-white font-semibold"
             />
 
             <div className="pt-5 flex items-center justify-between w-full">
@@ -218,23 +212,11 @@ const Register = () => {
                   style={{
                     width: "50px",
                     marginRight: "10px",
-                    border: "2px solid #32c770",
+                    border: "2px solid #78632F",
                     cursor: "pointer",
                     padding: "10px",
                   }}
                   src={googleImg}
-                  alt=""
-                />
-                <img
-                  onClick={handleGithubLogin}
-                  style={{
-                    width: "50px",
-                    marginRight: "10px",
-                    border: "2px solid #32c770",
-                    cursor: "pointer",
-                    padding: "10px",
-                  }}
-                  src={gitHubImg}
                   alt=""
                 />
               </div>
