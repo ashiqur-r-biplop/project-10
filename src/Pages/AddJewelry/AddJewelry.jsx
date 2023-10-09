@@ -31,7 +31,7 @@ const AddJewelry = () => {
     };
     if (user && userRole?.userRole === "seller") {
       console.log(myJewelry);
-      axios.post("http://localhost:5000/jewelry", myJewelry).then((result) => {
+      axios.post("https://jewelry-zone-server.vercel.app/jewelry", myJewelry).then((result) => {
         if (result?.data?.insertedId) {
           Swal.fire({
             position: "top-center",

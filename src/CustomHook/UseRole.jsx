@@ -8,7 +8,7 @@ const UseRole = () => {
   const [RoleLoading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/userRole/${user?.email}`)
+      .get(`https://jewelry-zone-server.vercel.app/userRole/${user?.email}`)
       .then((data) => setUserRole(data.data.role), setLoading(false));
   }, [user]);
   return { userRole, RoleLoading };

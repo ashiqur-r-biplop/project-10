@@ -10,7 +10,7 @@ const AllJewellry = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/all-jewelry")
+      .get("https://jewelry-zone-server.vercel.app/all-jewelry")
       .then((data) => {
         setJewelry(data.data);
       })
@@ -34,7 +34,7 @@ const AllJewellry = () => {
         };
 
         axios
-          .patch("http://localhost:5000/update-product-status", data)
+          .patch("https://jewelry-zone-server.vercel.app/update-product-status", data)
           .then((res) => {
             console.log(res);
             if (res.data.modifiedCount > 0) {

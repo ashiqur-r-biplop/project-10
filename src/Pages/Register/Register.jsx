@@ -51,7 +51,7 @@ const Register = () => {
               role: "seller",
             };
             // console.log(saveUser);
-            axios.post("http://localhost:5000/users", saveUser).then((data) => {
+            axios.post("https://jewelry-zone-server.vercel.app/users", saveUser).then((data) => {
               if (data?.data.insertedId) {
                 navigate(from, { replace: true });
                 form.reset();

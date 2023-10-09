@@ -11,7 +11,7 @@ const AllUser = () => {
   const [control, setControl] = useState(true);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/all-user`)
+      .get(`https://jewelry-zone-server.vercel.app/all-user`)
       .then((data) => setUsers(data.data), setLoading(false));
   }, [user, control]);
   const options = [
@@ -34,7 +34,7 @@ const AllUser = () => {
           userId,
         };
 
-        axios.patch("http://localhost:5000/update-user-role", data).then((res) => {
+        axios.patch("https://jewelry-zone-server.vercel.app/update-user-role", data).then((res) => {
           console.log(res);
           if (res.data.modifiedCount > 0) {
             Swal.fire({

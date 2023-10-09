@@ -11,7 +11,7 @@ const PendingProduct = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:5000/pending-product/${user?.email}`)
+        .get(`https://jewelry-zone-server.vercel.app/pending-product/${user?.email}`)
         .then((data) => setProducts(data?.data), setLoading(false))
         .catch((err) => {
           console.log(err);
