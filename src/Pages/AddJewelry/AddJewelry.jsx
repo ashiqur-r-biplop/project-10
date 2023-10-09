@@ -31,7 +31,7 @@ const AddJewelry = () => {
     };
     if (user && userRole === "seller") {
       console.log(myJewelry);
-      axios.post("http://localhost:5000/jewelry").then((result) => {
+      axios.post("http://localhost:5000/jewelry", myJewelry).then((result) => {
         if (result?.data?.insertedId) {
           Swal.fire({
             position: "top-center",

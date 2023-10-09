@@ -9,6 +9,9 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Layout/Dashboard";
+import AllUser from "../Pages/Dashboard/all-user/AllUser";
+import PendingProduct from "../Pages/Dashboard/pending-product/PendingProduct";
+import Animations from "../Component/Dashboard/Animations/Animations";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +51,25 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>
+    element: <Dashboard></Dashboard>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Animations></Animations>,
+      },
+      {
+        path: "/dashboard/pending-product",
+        element: <PendingProduct></PendingProduct>,
+      },
+      {
+        path: "/dashboard/all-user",
+        element: <AllUser></AllUser>,
+      },
+      {
+        path: "/dashboard/all-jewelry",
+        element: <AllJewelry></AllJewelry>,
+      },
+    ],
   },
 ]);
