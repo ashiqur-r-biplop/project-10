@@ -12,6 +12,7 @@ import Dashboard from "../Layout/Dashboard";
 import AllUser from "../Pages/Dashboard/all-user/AllUser";
 import PendingProduct from "../Pages/Dashboard/pending-product/PendingProduct";
 import Animations from "../Component/Dashboard/Animations/Animations";
+import AllJewellry from "../Pages/Dashboard/AllJewellry/AllJewellry";
 
 export const router = createBrowserRouter([
   {
@@ -67,8 +68,8 @@ export const router = createBrowserRouter([
         element: <AllUser></AllUser>,
       },
       {
-        path: "/dashboard/all-jewelry",
-        element: <AllJewelry></AllJewelry>,
+        path: "/dashboard/all-jewellry",
+        element: <AllJewellry></AllJewellry>,
       },
     ],
   },

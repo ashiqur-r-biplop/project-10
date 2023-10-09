@@ -29,7 +29,7 @@ const AddJewelry = () => {
       quantity,
       description,
     };
-    if (user && userRole === "seller") {
+    if (user && userRole?.userRole === "seller") {
       console.log(myJewelry);
       axios.post("http://localhost:5000/jewelry", myJewelry).then((result) => {
         if (result?.data?.insertedId) {
@@ -51,7 +51,7 @@ const AddJewelry = () => {
           backgroundColor: "#32c770",
         },
         title: "Oops...",
-        footer: "Please Provide Me User Email",
+        footer: "Please Login....",
       });
     }
   };

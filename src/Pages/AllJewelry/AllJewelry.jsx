@@ -1,10 +1,7 @@
+import React from "react";
 
 const AllJewelry = () => {
-    return (
-        <div>
-            AllJewelry
-        </div>
-    );
+  return <div></div>;
 };
 
 export default AllJewelry;
