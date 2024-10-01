@@ -30,9 +30,9 @@ const Navbar = () => {
       <li>
         <Link to="/add-jewelry">Add jewelry</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/blogs">Blogs</Link>
-      </li>
+      </li> */}
       {user && (
         <li>
           <Link to="/dashboard">Dashboard</Link>
